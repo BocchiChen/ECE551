@@ -1,0 +1,9 @@
+animal:dragon
+animal:walrus
+place:cave
+  :whitespaces
+adjective:peculiar
+:
+ 1 :strs
+adjective:scary
+adjective:peaceful

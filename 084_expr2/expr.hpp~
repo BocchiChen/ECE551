@@ -1,0 +1,98 @@
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+
+class Expression {
+ public:
+  virtual std::string toString() const = 0;
+  virtual ~Expression() {}
+};
+
+class NumExpression : public Expression {
+  long number;
+
+ public:
+  NumExpression(long n) : number(n) {}
+  virtual std::string toString() const {
+    std::stringstream ret;
+    ret << number;
+    return ret.str();
+  }
+  virtual ~NumExpression() {}
+};
+class PlusExpression : public Expression {
+  Expression * lhs;
+  Expression * rhs;
+
+ public:
+  PlusExpression(Expression * lhs, Expression * rhs) {
+    this->lhs = lhs;
+    this->rhs = rhs;
+  }
+  std::string toString() const {
+    std::stringstream ret;
+    ret << "(" << lhs->toString() << " + " << rhs->toString() << ")";
+    return ret.str();
+  }
+  ~PlusExpression() {
+    delete lhs;
+    delete rhs;
+  }
+};
+class MinusExpression : public Expression {
+  Expression * lhs;
+  Expression * rhs;
+
+ public:
+  MinusExpression(Expression * lhs, Expression * rhs) {
+    this->lhs = lhs;
+    this->rhs = rhs;
+  }
+  std::string toString() const {
+    std::stringstream ret;
+    ret << "(" << lhs->toString() << " - " << rhs->toString() << ")";
+    return ret.str();
+  }
+  ~MinusExpression() {
+    delete lhs;
+    delete rhs;
+  }
+};
+class MultiplyExpression : public Expression {
+  Expression * lhs;
+  Expression * rhs;
+
+ public:
+  MultiplyExpression(Expression * lhs, Expression * rhs) {
+    this->lhs = lhs;
+    this->rhs = rhs;
+  }
+  std::string toString() const {
+    std::stringstream ret;
+    ret << "(" << lhs->toString() << " * " << rhs->toString() << ")";
+    return ret.str();
+  }
+  ~MultiplyExpression() {
+    delete lhs;
+    delete rhs;
+  }
+};
+class DivideExpression : public Expression {
+  Expression * lhs;
+  Expression * rhs;
+
+ public:
+  DivideExpression(Expression * lhs, Expression * rhs) {
+    this->lhs = lhs;
+    this->rhs = rhs;
+  }
+  std::string toString() const {
+    std::stringstream ret;
+    ret << "(" << lhs->toString() << " / " << rhs->toString() << ")";
+    return ret.str();
+  }
+  ~DivideExpression() {
+    delete lhs;
+    delete rhs;
+  }
+};

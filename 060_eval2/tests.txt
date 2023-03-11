@@ -1,0 +1,15 @@
+story-step1 story.txt
+story-step2 words.txt
+story-step3 words.txt story2.txt
+story-step4 words.txt story2.txt
+story-step4 -n words.txt story2.txt
+story-step1 story3.txt
+story-step4 words2.txt story3.txt
+story-step4 -n words2.txt story3.txt
+story-step4 words.txt story4.txt
+story-step4 -n words.txt story4.txt
+story-step3 words.txt story5.txt
+story-step4 -n words.txt story5.txt
+story-step4 -n words3.txt story4.txt
+story-step3 words3.txt story5.txt
+story-step4 -n words3.txt story5.txt
